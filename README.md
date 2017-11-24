@@ -1,2 +1,6 @@
 # react-redux-saga-skeleton
-Basic skeleton setup v1
+
+Sample React App with Login and Logout.
+
+This repo is the customized version from https://github.com/react-boilerplate/react-boilerplate
+
