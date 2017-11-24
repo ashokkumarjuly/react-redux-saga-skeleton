@@ -1,0 +1,11 @@
+import styled from 'styled-components';
+
+const Wrapper = styled.div`
+  padding: 2px;
+  select {
+    text-transform:uppercase
+  }
+`;
+
+
+export default Wrapper;
