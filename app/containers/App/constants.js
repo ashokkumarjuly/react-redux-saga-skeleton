@@ -10,6 +10,8 @@
  */
 
 export const DEFAULT_LOCALE = 'en';
+export const APP_LOAD = 'rc-skeleton/App/APP_LOAD';
+export const REDIRECT = 'rc-skeleton/App/REDIRECT';
 export const LOGGED_IN_USER = 'rc-skeleton/App/LOGGED_IN_USER';
 
 

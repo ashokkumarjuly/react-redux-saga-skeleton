@@ -1,4 +1,4 @@
-import { LOGGED_IN_USER } from './constants';
+import { APP_LOAD,REDIRECT, LOGGED_IN_USER } from './constants';
 
 
 
@@ -11,4 +11,16 @@ export const userLogout = () => ({
 export const loggedInUser = (user) => ({
   type: LOGGED_IN_USER,
   user
+})
+
+
+
+export const appLoad = (payload, token, skipTracking=true) => ({
+  type: APP_LOAD,
+  payload, token, skipTracking
+})
+
+export const redirectTo = (redirectUrl) => ({
+  type: REDIRECT,
+  redirectUrl
 })

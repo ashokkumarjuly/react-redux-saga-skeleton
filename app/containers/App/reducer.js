@@ -1,22 +1,30 @@
 import { fromJS } from 'immutable';
 
-import { LOGGED_IN_USER } from './constants';
+import { APP_LOAD, REDIRECT, LOGGED_IN_USER } from './constants';
 
 // The initial state of the App
 const initialState = fromJS({
-  isAutenticated: false,
-  loggedinEmail: null,
-  loggedinUser: []
+  //isAutenticated: false,
+  //loggedinEmail: null,
+  //loggedinUser: [],
+  appName: "MY APP",
+  token: null,
+  appLoaded: true,
+  currentUser: null,
+  // redirectTo:null
 });
 
 function appReducer(state = initialState, action = {}) {
   switch (action.type) {
-    case LOGGED_IN_USER:
+    case APP_LOAD:
       return {
         ...state,
-        loggedinEmail: action.user.email,
-        loggedinUser: action.user
+        token: action.token || null,
+        appLoaded: true,
+        currentUser: action.payload ? action.payload.user : null
       }
+    case REDIRECT:
+      return { ...state, redirectTo: action.redirectUrl ? action.redirectUrl : null };
     default: return state;
   }
 }

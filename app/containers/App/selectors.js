@@ -1,23 +1,30 @@
 import { createSelector } from 'reselect';
 
-const selectGlobal = (state) => state.get('global');
-const selectRoute = (state) => state.get('route');
 
-const makeSelectLocation = () => createSelector(
-  selectRoute,
-  (routeState) => routeState.get('location').toJS()
+const selectRoute = (state) => state.get('route');
+const selectSite = (state) => state.get('site');
+
+
+
+const makeSelectAppLoaded = () => createSelector(
+  selectSite,
+  (substate) => {    
+    return substate.get('appLoaded');
+  }
+);
+const makeSelectCurrentUser = () => createSelector(
+  selectSite,
+  (substate) => substate.get('currentUser')
+);
+const makeSelectAppName = () => createSelector(
+  selectSite,
+  (substate) => substate.get('appName')
 );
 
-const makeSelectLoggedInUser = () => createSelector(
-  selectGlobal,
-  (globalState) => globalState.loggedinUser
+const makeSelectRedirectTo = () =>createSelector(
+  selectSite,
+  (substate) => substate.get('redirectTo')
 )
-
-const makeSelectLoggedInEmail = () => createSelector(
-  selectGlobal,
-  (globalState) => globalState.loggedinEmail
-)
-
 export {
-  makeSelectLocation,makeSelectLoggedInUser,makeSelectLoggedInEmail
+  makeSelectAppName, makeSelectCurrentUser, makeSelectAppLoaded, makeSelectRedirectTo
 };

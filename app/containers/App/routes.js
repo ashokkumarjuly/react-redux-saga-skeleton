@@ -21,7 +21,7 @@ const MainRoutes = () => {
       {/* <Route exact path="/users" render={() => { return (<p>Users Page</p>) }} >
         <Route exact path="/profile" render={() => { return (<p>Users Profile</p>) }} />
       </Route> */}
-      <Route component={NotFoundPage} />
+      
     </Switch>
   );
 };

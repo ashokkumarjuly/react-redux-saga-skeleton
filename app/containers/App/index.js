@@ -13,35 +13,23 @@
 
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import Login from '../Login'
+import NotFoundPage from 'containers/NotFoundPage/Loadable'; 
 
-import HomePage from 'containers/HomePage/Loadable';
-import NotFoundPage from 'containers/NotFoundPage/Loadable';
-import Header from 'containers/Header'
-import Footer from 'components/Footer';
-import Layout from './layout'
-import { isLoggedIn } from 'utils/AuthService';
+ 
+import Site from './site';
+// import { isLoggedIn } from 'utils/AuthService';
 
 export default function App() {
 
   return (
     <div>
-
-      {/* <Switch>
-        <Header />
-        <Route exact path="/" component={HomePage} />
-        <Route path="/login" component={Login} />
-        <Route component={NotFoundPage} />
-      </Switch> */}
-      <Header isLoggedIn={isLoggedIn()} />
       <Switch>
-        <Layout />
+        <Site />
         {/* logout: just redirects to login (App will take care of removing the token) */}
         {/* <LogoutRoute path="/logout" /> */}
-
+        <Route component={NotFoundPage} />  
       </Switch>
-      {/* <Route component={NotFoundPage} /> */}
-      <Footer/>
+          
     </div>
   );
 }

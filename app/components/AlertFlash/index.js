@@ -30,15 +30,14 @@ class AlertFlash extends React.Component { // eslint-disable-line react/prefer-s
   render() {
 
     const { id, type, text, onClick } = this.props;
-    console.log(type);
+    
     let wrapperClass = cx({
       "primary": type === "info",
       "success": type === "success",
       "danger": type === "error",
       "warning": type === "warning"
 
-    });
-    console.log(wrapperClass);
+    });    
 
     return (
       <div>
